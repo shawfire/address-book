@@ -39,9 +39,9 @@ Book1 \ Book2 = { "Bob", "John" }
 - React frontend
   - Create an address book
     - Address Books (+)
-      - address book1 (\/)
-      - address book2 (/\) (+)
-        - Mary 0423 122 123
+      - address book1 (`\/`) (-)
+      - address book2 (`/\`) (+)
+        - Mary 0423 122 123 (edit) (-)
         - John 0432 123 132
         - Jane 0432 442 842
       - Unique Entries from book1 and book2 (\/)
@@ -68,7 +68,7 @@ Book1 \ Book2 = { "Bob", "John" }
 
 - React frontend
   - Login / Logout User
-  - Delete a book
+  - Delete an address book
     - Delete and entry in the address book
 - Java backend
   - User authentication
@@ -108,5 +108,22 @@ npm i -D react-icons
 ```
 
 Reference: [React Icons](https://react-icons.netlify.com/)
+
+</details>
+
+<details><summary>cypress - JavaScript end to end testing framework</summary>
+
+- installation
+
+```bash
+npm i -D cypress
+```
+
+- Running the functional tests
+
+```
+npm run start
+npm run cypress:open
+```
 
 </details>

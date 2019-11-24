@@ -6,6 +6,18 @@ export const colors = {
   neutral: "#BD3632"
 };
 
+export interface ButtonType {
+  color: string;
+  background: string;
+  hover: {
+    color: string;
+    background: string;
+  };
+  active: {
+    background: string;
+  };
+}
+
 export const theme = {
   colors: {
     ...colors
@@ -19,6 +31,17 @@ export const theme = {
     },
     active: {
       background: "#2980b9"
+    }
+  },
+  deleteButton: {
+    color: "#fff",
+    background: "#e74c3c",
+    hover: {
+      background: "#c0392b",
+      color: "#fff"
+    },
+    active: {
+      background: "#c0392b"
     }
   }
 };
