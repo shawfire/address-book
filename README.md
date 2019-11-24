@@ -67,9 +67,11 @@ Book1 \ Book2 = { "Bob", "John" }
 <details><summary>Out of scope</summary>
 
 - React frontend
+  - Login / Logout User
   - Delete a book
     - Delete and entry in the address book
 - Java backend
+  - User authentication
   - Delete a book - Delete and entry in the address book
     </details>
 
@@ -96,5 +98,15 @@ npm i @emotion/styled @emotion/core
 ```
 
 - Reference: [React Emotion - Introduction](https://emotion.sh/docs/introduction)
+
+</details>
+
+<details><summary>React Icons</summary>
+
+```bash
+npm i -D react-icons
+```
+
+Reference: [React Icons](https://react-icons.netlify.com/)
 
 </details>

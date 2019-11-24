@@ -1,24 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { AddressBookList } from "./components/AddressBook/AddressBookList";
 
-const App: React.FC = () => {
+function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AddressBookList
+        addressBooks={[
+          {
+            name: "book1",
+            addresses: [
+              {
+                name: "Bob",
+                mobile: "0432123123"
+              },
+              {
+                name: "Mary",
+                mobile: "0432123456"
+              },
+              {
+                name: "Jane",
+                mobile: "0432123789"
+              }
+            ]
+          },
+          {
+            name: "book2",
+            addresses: [
+              {
+                name: "Mary",
+                mobile: "0432123456"
+              },
+              {
+                name: "John",
+                mobile: "0432321123"
+              },
+              {
+                name: "Jane",
+                mobile: "0432123789"
+              }
+            ]
+          }
+        ]}
+      />
     </div>
   );
 }
