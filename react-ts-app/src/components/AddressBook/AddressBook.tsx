@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { MdExpandMore, MdExpandLess, MdPersonAdd } from "react-icons/md";
 import { AiOutlineUsergroupDelete, AiOutlineUserDelete } from "react-icons/ai";
 import { Button } from "../Button/Button";
-import { AddressBookProps, AddressProps } from "./types";
+import { AddressBookProps, AddressEntryType } from "../../types/types";
 import {
   StyledSection,
   StyledRow,
   StyledColumn,
-  StyledTableRow
+  StyledTableRow,
+  StyledTableHeading
 } from "./styled";
 import { theme } from "../../theme/theme";
 
@@ -40,26 +41,24 @@ export function AddressBook({
       </StyledRow>
       {expanded && (
         <span>
-          <StyledTableRow>
-            <h2>
-              <StyledColumn>name </StyledColumn>
-              <StyledColumn>mobile</StyledColumn>
-              <StyledColumn>
-                <Button>
-                  <MdPersonAdd />
-                </Button>{" "}
-                {addressBook.addresses.length === 0 && (
-                  <Button
-                    button={theme.deleteButton}
-                    onClick={() => deleteAddressBook(addressBook.name)}
-                  >
-                    <AiOutlineUsergroupDelete />
-                  </Button>
-                )}
-              </StyledColumn>
-            </h2>
-          </StyledTableRow>
-          {addressBook.addresses.map((address: AddressProps) => (
+          <StyledTableHeading>
+            <StyledColumn>Name </StyledColumn>
+            <StyledColumn>Mobile</StyledColumn>
+            <StyledColumn>
+              <Button>
+                <MdPersonAdd />
+              </Button>{" "}
+              {addressBook.addresses.length === 0 && (
+                <Button
+                  button={theme.deleteButton}
+                  onClick={() => deleteAddressBook(addressBook.name)}
+                >
+                  <AiOutlineUsergroupDelete />
+                </Button>
+              )}
+            </StyledColumn>
+          </StyledTableHeading>
+          {addressBook.addresses.map((address: AddressEntryType) => (
             <StyledTableRow>
               <StyledColumn>{address.name}</StyledColumn>
               <StyledColumn>{address.mobile}</StyledColumn>{" "}

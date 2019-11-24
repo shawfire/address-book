@@ -1,11 +1,13 @@
-export interface AddressProps {
+export interface AddressEntryType {
   name: string;
   mobile: string;
 }
 
+export type AddressesType = AddressEntryType[];
+
 export interface AddressBookType {
   name: string;
-  addresses: AddressProps[];
+  addresses: AddressesType;
 }
 
 export interface AddressBookProps {

@@ -28,14 +28,29 @@ export const StyledTableRow = styled.div({
   flexDirection: "row",
   textAlign: "left",
   padding: "3px",
-  "&:nth-child(2n+1)": {
+  "&:nth-child(2n+2)": {
     background: "MistyRose"
   },
   "&:nth-child(1)": {
-    background: "WhiteSmoke"
+    background: "WhiteSmoke",
+    fontWeight: "bold",
+    fontFamily: "Ariel",
+    fontSize: "20px"
   }
 });
 
 export const StyledColumn = styled.span({
-  flex: "1"
+  maxWidth: "120px",
+  minWidth: "120px"
+});
+
+export const StyledTableHeading = styled.div({
+  display: "flex",
+  flexDirection: "row",
+  textAlign: "left",
+  padding: "3px",
+  background: "WhiteSmoke",
+  fontWeight: "bold",
+  fontFamily: "Ariel",
+  fontSize: "23px"
 });

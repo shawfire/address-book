@@ -127,3 +127,34 @@ npm run cypress:open
 ```
 
 </details>
+
+<details><summary>Jest - Unit tests</summary>
+
+```
+npm run test -- --coverage
+```
+
+</details>
+
+<details><summary>Build and Run instructions</summary>
+
+- After cloning the reposition.
+- Assume you have nvm installed
+
+```bash
+cd react-ts-app
+nvm install 12.13.0
+nvm use
+npm i
+npm run start
+```
+
+</details>
+
+<details><summary>TODO</summary>
+
+- Add Java backend
+- Edit Address Book entries
+- Add new address book entries
+
+</details>

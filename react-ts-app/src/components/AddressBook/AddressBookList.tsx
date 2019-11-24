@@ -1,47 +1,59 @@
 import React, { useState } from "react";
 import { MdGroupAdd } from "react-icons/md";
 import { Button } from "../Button/Button";
-import { AddressBookType } from "./types";
+import { AddressBookType, AddressEntryType } from "../../types/types";
 import { AddressBook } from "./AddressBook";
-import { StyledSection, StyledRow } from "./styled";
+import {
+  StyledSection,
+  StyledRow,
+  StyledTableRow,
+  StyledColumn,
+  StyledTableHeading
+} from "./styled";
+import { sortAddressBooks } from "../../utils/sortAddressBooks";
+import { sortAddressBook } from "../../utils/sortAddressBook";
+import { findUniqueAddresses } from "../../utils/findUniqueAddresses";
+import { UniqueAddresses } from "./UniqueAddresses";
 
 export function AddressBookList() {
-  const [addressBooks, setAddressBooks] = useState<AddressBookType[]>([
-    {
-      name: "book1",
-      addresses: [
-        {
-          name: "Bob",
-          mobile: "0432123123"
-        },
-        {
-          name: "Mary",
-          mobile: "0432123456"
-        },
-        {
-          name: "Jane",
-          mobile: "0432123789"
-        }
-      ]
-    },
-    {
-      name: "book2",
-      addresses: [
-        {
-          name: "Mary",
-          mobile: "0432123456"
-        },
-        {
-          name: "John",
-          mobile: "0432321123"
-        },
-        {
-          name: "Jane",
-          mobile: "0432123789"
-        }
-      ]
-    }
-  ]);
+  const [addressBooks, setAddressBooks] = useState<AddressBookType[]>(
+    sortAddressBooks([
+      {
+        name: "book1",
+        addresses: sortAddressBook([
+          {
+            name: "Bob",
+            mobile: "0432 123 123"
+          },
+          {
+            name: "Mary",
+            mobile: "0432 123 456"
+          },
+          {
+            name: "Jane",
+            mobile: "0432 123 789"
+          }
+        ])
+      },
+      {
+        name: "book2",
+        addresses: sortAddressBook([
+          {
+            name: "Mary",
+            mobile: "0432 123 456"
+          },
+          {
+            name: "John",
+            mobile: "0432 321 123"
+          },
+          {
+            name: "Jane",
+            mobile: "0432 123 789"
+          }
+        ])
+      }
+    ])
+  );
 
   function addAddressBook() {
     const newAddressBook = {
@@ -49,14 +61,14 @@ export function AddressBookList() {
       addresses: []
     };
     const newAddressBooks = [...addressBooks, newAddressBook];
-    setAddressBooks(newAddressBooks);
+    setAddressBooks(sortAddressBooks(newAddressBooks));
   }
 
   function deleteAddressBook(name: string) {
     const newAddressBooks = addressBooks.filter(
       addressBook => addressBook.name !== name
     );
-    setAddressBooks(newAddressBooks);
+    setAddressBooks(sortAddressBooks(newAddressBooks));
   }
 
   function deleteAddress(addressBookName: string, addressName: string) {
@@ -73,31 +85,34 @@ export function AddressBookList() {
       )
     };
     const newAddressBooks = [...otherAddressBooks, newAddressBook];
-    setAddressBooks(newAddressBooks);
+    setAddressBooks(sortAddressBooks(newAddressBooks));
   }
 
   return (
-    <StyledSection>
-      <StyledSection alignItems="left">
-        <StyledRow>
-          <h1>
-            Address Books{" "}
-            <Button onClick={addAddressBook}>
-              <MdGroupAdd />
-            </Button>
-          </h1>
-        </StyledRow>
-
-        {addressBooks.map((addressBook: AddressBookType) => (
+    <div>
+      <StyledSection>
+        <StyledSection alignItems="left">
           <StyledRow>
-            <AddressBook
-              addressBook={addressBook}
-              deleteAddressBook={deleteAddressBook}
-              deleteAddress={deleteAddress}
-            />
+            <h1>
+              Address Books{" "}
+              <Button onClick={addAddressBook}>
+                <MdGroupAdd />
+              </Button>
+            </h1>
           </StyledRow>
-        ))}
+
+          {addressBooks.map((addressBook: AddressBookType) => (
+            <StyledRow>
+              <AddressBook
+                addressBook={addressBook}
+                deleteAddressBook={deleteAddressBook}
+                deleteAddress={deleteAddress}
+              />
+            </StyledRow>
+          ))}
+          <UniqueAddresses addressBooks={addressBooks} />
+        </StyledSection>
       </StyledSection>
-    </StyledSection>
+    </div>
   );
 }
