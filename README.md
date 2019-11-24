@@ -68,12 +68,10 @@ Book1 \ Book2 = { "Bob", "John" }
 
 - React frontend
   - Login / Logout User
-  - Delete an address book
-    - Delete and entry in the address book
 - Java backend
   - User authentication
-  - Delete a book - Delete and entry in the address book
-    </details>
+
+</details>
 
 <details><summary>Create React App</summary>
 
@@ -156,5 +154,7 @@ npm run start
 - Add Java backend
 - Edit Address Book entries
 - Add new address book entries
+- Add enzyme to extend UI unit tests
+- Add more cypress functional tests
 
 </details>
