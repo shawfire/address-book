@@ -134,6 +134,35 @@ npm run test -- --coverage
 
 </details>
 
+<details><summary>Jest / Enzyme - Unit tests</summary>
+
+```bash
+npm install --save enzyme enzyme-adapter-react-16 react-test-renderer
+```
+
+- src/setupTests.js
+
+```js
+import { configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+configure({ adapter: new Adapter() });
+```
+
+- If you eject make sure package.json has the following rule.
+
+```js
+"jest": {
+  "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js"
+ }
+```
+
+References:
+
+- [Running Tests](https://create-react-app.dev/docs/running-tests/)
+- [Configuring Jest and Enzyme in Create React App on Typescript](https://thetrevorharmon.com/blog/configuring-jest-and-enzyme-in-create-react-app-on-typescript)
+
+</details>
+
 <details><summary>Build and Run instructions</summary>
 
 - After cloning the reposition.

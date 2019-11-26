@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Field tests First Input Field snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Input Field tests Input Field snapshot 1`] = `ShallowWrapper {}`;
