@@ -88,6 +88,30 @@ export function AddressBookList() {
     setAddressBooks(sortAddressBooks(newAddressBooks));
   }
 
+  function editAddress(
+    addressBookName: string,
+    addressName: string,
+    newAddressName: string,
+    newMobile: string
+  ) {
+    const otherAddressBooks: AddressBookType[] = addressBooks.filter(
+      addressBook => addressBook.name !== addressBookName
+    );
+    const currentAddressBook: AddressBookType = addressBooks.filter(
+      addressBook => addressBook.name === addressBookName
+    )[0];
+    const newAddressBook: AddressBookType = {
+      name: addressBookName,
+      addresses: currentAddressBook.addresses.map(address =>
+        address.name === addressName
+          ? { name: newAddressName, mobile: newMobile }
+          : address
+      )
+    };
+    const newAddressBooks = [...otherAddressBooks, newAddressBook];
+    setAddressBooks(sortAddressBooks(newAddressBooks));
+  }
+
   return (
     <div>
       <StyledSection>
@@ -95,7 +119,7 @@ export function AddressBookList() {
           <StyledRow>
             <h1>
               Address Books{" "}
-              <Button onClick={addAddressBook}>
+              <Button alt="Add a new address book" onClick={addAddressBook}>
                 <MdGroupAdd />
               </Button>
             </h1>
@@ -107,6 +131,7 @@ export function AddressBookList() {
                 addressBook={addressBook}
                 deleteAddressBook={deleteAddressBook}
                 deleteAddress={deleteAddress}
+                editAddress={editAddress}
               />
             </StyledRow>
           ))}

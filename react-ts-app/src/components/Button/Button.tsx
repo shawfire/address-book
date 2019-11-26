@@ -5,15 +5,17 @@ import { ButtonType, theme } from "../../theme/theme";
 interface ButtonPropTypes {
   onClick?: () => void;
   button?: ButtonType;
+  alt?: string;
 }
 
 export const Button: FunctionComponent<ButtonPropTypes> = ({
   onClick,
   button = theme.button,
-  children
+  children,
+  alt = ""
 }) => {
   return (
-    <span onClick={onClick}>
+    <span onClick={onClick} title={alt}>
       <StyledButton button={button}>
         &nbsp;
         {children}
