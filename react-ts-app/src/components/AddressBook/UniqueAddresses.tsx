@@ -26,7 +26,7 @@ export function UniqueAddresses({ addressBooks }: AddressBookListProps) {
             addressBooks[0].addresses,
             addressBooks[1].addresses
           ).map((address: AddressEntryType) => (
-            <StyledTableRow>
+            <StyledTableRow key={address.name}>
               <StyledColumn>{address.name}</StyledColumn>
               <StyledColumn>{address.mobile}</StyledColumn>
             </StyledTableRow>

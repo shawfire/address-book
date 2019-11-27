@@ -30,6 +30,6 @@ describe("Input Field tests", () => {
     inputFieldProps.inputProps.autoFocus = true;
     wrapper = shallow(<InputField {...inputFieldProps} />);
 
-    expect(wrapperu).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });

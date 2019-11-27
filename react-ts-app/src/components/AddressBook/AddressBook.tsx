@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  MdExpandMore,
-  MdExpandLess,
-  MdPersonAdd,
-  MdCancel,
-  MdSave
-} from "react-icons/md";
+import { MdExpandMore, MdExpandLess, MdPersonAdd } from "react-icons/md";
 import { AiOutlineUsergroupDelete, AiOutlineUserDelete } from "react-icons/ai";
 import { FaUserEdit } from "react-icons/fa";
 import { Button } from "../Button/Button";
@@ -18,13 +12,6 @@ import {
   StyledTableHeading
 } from "./styled";
 import { theme } from "../../theme/theme";
-import { useFormInput } from "../../hooks/useFormInput";
-import {
-  MandatoryValidator,
-  MobilePrefixValidator,
-  MobileValidator
-} from "../../hooks/validators";
-import InputField from "../InputField/InputField";
 import { EditAddress } from "./EditAddress";
 
 export function AddressBook({
@@ -33,49 +20,11 @@ export function AddressBook({
   deleteAddress,
   editAddress
 }: AddressBookProps) {
-  const [name, nameCheck] = useFormInput({
-    name: "name",
-    validators: [MandatoryValidator("Enter name")]
-  });
-  const [mobile, mobileCheck] = useFormInput({
-    name: "mobile",
-    allowedChars: "[0-9]",
-    mask: "____ ___ ___",
-    validators: [
-      MandatoryValidator("Enter mobile"),
-      MobilePrefixValidator("Prefix 04 or 05"),
-      MobileValidator("Invalid mobile")
-    ]
-  });
-  const fields = [
-    { check: nameCheck, ref: name.ref },
-    { check: mobileCheck, ref: mobile.ref }
-  ];
   const [editName, setEditName] = useState<string>("");
   const [expanded, setExpanded] = useState<boolean>(false);
 
-  const setFocus = (ref: React.RefObject<HTMLInputElement>) =>
-    ref && ref.current && ref.current.focus();
-
   function toggleAddressBookDisplay() {
     setExpanded(!expanded);
-  }
-
-  function onSave(addressBookName: string, addressName: string) {
-    let valid = true;
-    fields.forEach(field => {
-      const errorMessage = field.check.validate();
-      field.check.setError(errorMessage);
-      if (valid) {
-        if (errorMessage !== "") {
-          valid = false;
-          setFocus(field.ref);
-        }
-      }
-    });
-    if (valid) {
-      editAddress(addressBookName, addressName, name.value, mobile.value);
-    }
   }
 
   return (
@@ -113,15 +62,17 @@ export function AddressBook({
             </StyledColumn>
           </StyledTableHeading>
           {addressBook.addresses.map((address: AddressEntryType) => {
+            const keyValue = `${addressBook.name}-${address.name}`;
             return editName === address.name ? (
               <EditAddress
+                key={keyValue}
                 addressBook={addressBook}
                 address={address}
                 editAddress={editAddress}
                 setEditName={setEditName}
               />
             ) : (
-              <StyledTableRow>
+              <StyledTableRow key={keyValue}>
                 <StyledColumn>{address.name}</StyledColumn>
                 <StyledColumn>{address.mobile}</StyledColumn>{" "}
                 <StyledColumn>

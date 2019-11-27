@@ -126,7 +126,7 @@ export function AddressBookList() {
           </StyledRow>
 
           {addressBooks.map((addressBook: AddressBookType) => (
-            <StyledRow>
+            <StyledRow key={addressBook.name}>
               <AddressBook
                 addressBook={addressBook}
                 deleteAddressBook={deleteAddressBook}

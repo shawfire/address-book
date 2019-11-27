@@ -181,9 +181,7 @@ npm run start
 <details><summary>TODO</summary>
 
 - Add Java backend
-- Edit Address Book entries
 - Add new address book entries
-- Add enzyme to extend UI unit tests
-- Add more cypress functional tests
+- Ensure names is unique within an Address Book.
 
 </details>

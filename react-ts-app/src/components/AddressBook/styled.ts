@@ -28,10 +28,10 @@ export const StyledTableRow = styled.div({
   flexDirection: "row",
   textAlign: "left",
   padding: "3px",
-  "&:nth-child(2n+2)": {
+  "&:nth-of-type(2n+2)": {
     background: "MistyRose"
   },
-  "&:nth-child(1)": {
+  "&:nth-of-type(1)": {
     background: "WhiteSmoke",
     fontWeight: "bold",
     fontFamily: "Ariel",
