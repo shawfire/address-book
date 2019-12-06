@@ -1,0 +1,8 @@
+/Users/johnshaw/dev/poc/address-book/aws-java-address-api/src/main/java/com/serverless/Response.java
+/Users/johnshaw/dev/poc/address-book/aws-java-address-api/src/main/java/com/serverless/DeleteAddressHandler.java
+/Users/johnshaw/dev/poc/address-book/aws-java-address-api/src/main/java/com/serverless/dal/DynamoDBAdapter.java
+/Users/johnshaw/dev/poc/address-book/aws-java-address-api/src/main/java/com/serverless/ApiGatewayResponse.java
+/Users/johnshaw/dev/poc/address-book/aws-java-address-api/src/main/java/com/serverless/dal/Address.java
+/Users/johnshaw/dev/poc/address-book/aws-java-address-api/src/main/java/com/serverless/GetAddressHandler.java
+/Users/johnshaw/dev/poc/address-book/aws-java-address-api/src/main/java/com/serverless/CreateAddressHandler.java
+/Users/johnshaw/dev/poc/address-book/aws-java-address-api/src/main/java/com/serverless/ListAddressesHandler.java

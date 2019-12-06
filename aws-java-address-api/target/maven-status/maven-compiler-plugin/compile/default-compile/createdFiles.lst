@@ -1,0 +1,9 @@
+com/serverless/DeleteAddressHandler.class
+com/serverless/dal/DynamoDBAdapter.class
+com/serverless/ApiGatewayResponse$Builder.class
+com/serverless/CreateAddressHandler.class
+com/serverless/GetAddressHandler.class
+com/serverless/Response.class
+com/serverless/dal/Address.class
+com/serverless/ApiGatewayResponse.class
+com/serverless/ListAddressesHandler.class
