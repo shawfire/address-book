@@ -163,6 +163,26 @@ References:
 
 </details>
 
+<details><summary>Storybook </summary>
+
+- Installing storybook
+
+```bash
+npx -p @storybook/cli sb init
+```
+
+- Run storybook
+
+```bash
+npm run storybook
+```
+
+References:
+- [Storybook Quick Start Guide](https://storybook.js.org/docs/guides/quick-start-guide/)
+- [Storybook TypeScript configuration](https://storybook.js.org/docs/configurations/typescript-config/)
+
+</details>
+
 <details><summary>Build and Run instructions</summary>
 
 - After cloning the reposition.
