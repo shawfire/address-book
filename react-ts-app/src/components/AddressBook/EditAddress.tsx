@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { MdCancel, MdSave } from "react-icons/md";
 import { Button } from "../Button/Button";
-import { AddressBookProps, EditAddressProps } from "../../types/types";
+import { EditAddressProps } from "../../types/types";
 import { StyledColumn, StyledTableRow } from "./styled";
 import { theme } from "../../theme/theme";
 import { useFormInput } from "../../hooks/useFormInput";
